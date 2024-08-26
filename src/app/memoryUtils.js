@@ -10,7 +10,7 @@ export const startTraining = (images, imageCount) => {
     }
     return randomImages;
   };
-  
+
   export const generateExtraImages = (selectedImages, images, imageCount) => {
     const extraCount = Math.floor(imageCount / 2);
     const combinedImages = [...selectedImages];
@@ -23,7 +23,7 @@ export const startTraining = (images, imageCount) => {
     combinedImages.sort(() => 0.5 - Math.random());
     return combinedImages;
   };
-  
+
   export const handleImageClick = (image, userSelection) => {
     if (userSelection.includes(image)) {
       return userSelection.filter(img => img !== image);
@@ -31,29 +31,3 @@ export const startTraining = (images, imageCount) => {
       return [...userSelection, image];
     }
   };
-  
-  export const nextStep = (
-    currentStep,
-    setCurrentStep,
-    selectedImages,
-    userSelection,
-    setIsSuccessful,
-    generateExtraImagesHandler,
-    startTrainingHandler
-  ) => {
-    if (currentStep === 1) {
-      generateExtraImagesHandler();
-      setCurrentStep(2);
-    } else if (currentStep === 2) {
-      const isMatch =
-        selectedImages.every(image => userSelection.includes(image)) &&
-        userSelection.length === selectedImages.length;
-      setIsSuccessful(isMatch);
-      setCurrentStep(3);
-    } else if (currentStep === 3) {
-      // Restart the process
-      setCurrentStep(0);
-      startTrainingHandler();
-    }
-  };
-  
