@@ -258,8 +258,9 @@ const MemoryTrainer = () => {
     <div style={containerStyle}>
       {playerName && <div style={playerInfoStyle}>Player: {playerName}</div>}
 
-      <audio ref={successAudioRef} src="/result/result_success.mp4"></audio>
-      <audio ref={failAudioRef} src="/result/result_fail.mp3"></audio>
+      <audio ref={failAudioRef} src={require('../assets/result/result_fail.mp3')}></audio>
+      <audio ref={successAudioRef} src={require('../assets/result/result_success.mp4')}></audio>
+
 
       {/* Display number of questions completed out of total */}
       {gameStarted && currentStep !== 4 && (
@@ -351,7 +352,7 @@ const MemoryTrainer = () => {
               </div>
               <center>
               <img
-                src={isSuccessful ? "/result/success.gif" : "/result/try_again.gif"}
+                src={isSuccessful ? require('../assets/result/success.gif') : require('../assets/result/try_again.gif')}
                 alt={isSuccessful ? "Success" : "Try Again"}
                 style={{ width: "300px", height: "200px" }}
               />
