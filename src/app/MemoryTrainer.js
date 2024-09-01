@@ -228,6 +228,7 @@ const MemoryTrainer = () => {
     fontFamily: "'Roboto', sans-serif",
     padding: "20px",
     boxSizing: "border-box",
+    overflow: "hidden", // Prevent scrolling
   };
 
 
@@ -248,9 +249,9 @@ const MemoryTrainer = () => {
   };
 
   const buttonStyle = {
-    fontSize: "24px",
-    padding: "10px 20px",
-    marginTop: "20px",
+    fontSize: "5vw", // Button size relative to viewport width
+    padding: "2vw 4vw",
+    marginTop: "5vh",
     backgroundColor: "#6200ea",
     color: "#fff",
     border: "none",
@@ -287,8 +288,21 @@ const MemoryTrainer = () => {
     return <span style={{ color: 'red' }}>{points}</span>;
   };
 
+  const responsiveMediaQuery = `
+    @media (max-width: 600px) {
+      img {
+        width: 70vw; // Adjust image size for very small screens
+      }
+      button {
+        font-size: 6vw; // Adjust button size for very small screens
+      }
+    }
+  `;
+
+
   return (
     <div style={containerStyle}>
+      <style>{responsiveMediaQuery}</style>
       {playerName && <div style={playerInfoStyle}>Player: {playerName}</div>}
 
       <audio ref={failAudioRef} src={require('../assets/result/result_fail.mp3')}></audio>
@@ -354,9 +368,7 @@ const MemoryTrainer = () => {
                   key={index}
                   src={image}
                   alt="Memory"
-                  style={
-                    userSelection.includes(image) ? selectedStyle : imageStyle
-                  }
+                  style={userSelection.includes(image) ? selectedStyle : imageStyle}
                   onClick={() => handleImageClickHandler(image)}
                 />
               ))}
@@ -364,9 +376,9 @@ const MemoryTrainer = () => {
                 <div style={getProgressStyle()} />
               </div>
               <center>
-              <button onClick={handleCheckClick} style={buttonStyle}>
-                Check
-              </button>
+                <button onClick={handleCheckClick} style={buttonStyle}>
+                  Check
+                </button>
               </center>
             </>
           )}

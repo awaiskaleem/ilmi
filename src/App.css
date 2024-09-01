@@ -36,10 +36,3 @@
     transform: rotate(360deg);
   }
 }
-
-// Include a media query in your CSS file or style tags to adjust for mobile:
-@media (max-width: 600px) {
-  body {
-    font-size: 16px; // Smaller font size for mobile
-  }
-}
