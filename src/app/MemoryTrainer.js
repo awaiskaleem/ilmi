@@ -223,14 +223,13 @@ const MemoryTrainer = () => {
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    minHeight: "100vh",
+    height: "100vh", // Fill the height of the viewport
     backgroundColor: "#f0f0f0",
     fontFamily: "'Roboto', sans-serif",
-    padding: "20px",
+    padding: "10px", // Reduce padding for small screens
     boxSizing: "border-box",
     overflow: "hidden", // Prevent scrolling
   };
-
 
   const playerInfoStyle = {
     position: "absolute",
@@ -249,18 +248,17 @@ const MemoryTrainer = () => {
   };
 
   const buttonStyle = {
-    fontSize: "5vw", // Button size relative to viewport width
-    padding: "2vw 4vw",
-    marginTop: "5vh",
+    fontSize: "2vw", // Responsive font size
+    padding: "1vw 3vw",
+    marginTop: "10px",
     backgroundColor: "#6200ea",
     color: "#fff",
     border: "none",
     borderRadius: "5px",
     cursor: "pointer",
     boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-    transition: "background-color 0.3s ease",
-    width: "80%", // Responsive width
-    maxWidth: "300px", // Maximum width to prevent overscaling
+    width: "80%", // Make button width responsive
+    maxWidth: "150px",
   };
 
   const inputStyle = {
@@ -291,13 +289,29 @@ const MemoryTrainer = () => {
   const responsiveMediaQuery = `
     @media (max-width: 600px) {
       img {
-        width: 70vw; // Adjust image size for very small screens
+        width: 25vw; // Slightly smaller images on small screens
+        maxWidth: 80px;
+        minWidth: 60px;
       }
-      button {
-        font-size: 6vw; // Adjust button size for very small screens
+    }
+
+    @media (min-width: 900px) {
+      img {
+        width: 20vw; // Increase image size on larger screens
+        maxWidth: 250px;
+        minWidth: 150px;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      img {
+        width: 15vw; // Further increase for very large screens
+        maxWidth: 300px;
+        minWidth: 200px;
       }
     }
   `;
+
 
 
   return (
@@ -316,12 +330,12 @@ const MemoryTrainer = () => {
 
       {!gameStarted && (
         <div>
-          <h2>Game Instructions</h2>
-          <p>
-            <strong>Image Display:</strong> You will be shown some images for <strong>3 seconds</strong>.
-          </p>
-          <p>
-            <strong>Image Selection:</strong> Afterward, you will have <strong>10 seconds</strong> to identify the images you just saw.
+        <h2>Game Instructions</h2>
+        <p>
+          <strong>Image Display:</strong> 3 seconds to view images.
+        </p>
+        <p>
+          <strong>Image Selection:</strong> 10 seconds to identify them.
           </p>
           <p>
             <strong>Scoring:</strong>
