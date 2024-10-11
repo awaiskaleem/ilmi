@@ -12,7 +12,7 @@ import {
   incorrectStyle,
 } from "./styles";
 
-const TOTAL_QUESTIONS = 1;
+const TOTAL_QUESTIONS = 10;
 const MAX_SCORE = 40; // Maximum possible score
 
 const MemoryTrainer = () => {
