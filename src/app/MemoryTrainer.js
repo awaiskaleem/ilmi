@@ -12,7 +12,7 @@ import {
   incorrectStyle,
 } from "./styles";
 
-const TOTAL_QUESTIONS = 10;
+const TOTAL_QUESTIONS = 1;
 const MAX_SCORE = 40; // Maximum possible score
 
 const MemoryTrainer = () => {
@@ -248,7 +248,7 @@ const MemoryTrainer = () => {
   };
 
   const buttonStyle = {
-    fontSize: "2vw", // Responsive font size
+    fontSize: "1vw", // Responsive font size
     padding: "1vw 3vw",
     marginTop: "10px",
     backgroundColor: "#6200ea",
@@ -273,10 +273,8 @@ const MemoryTrainer = () => {
   };
 
   const pointsListStyle = {
-    textAlign: "left",
-    marginTop: "20px",
-    fontSize: "18px",
-    fontFamily: "'Roboto', sans-serif",
+    textAlign: 'center', // Center the text
+    margin: '0 auto', // Center the container if needed
   };
 
   const getPointsDisplay = (points) => {
@@ -445,6 +443,10 @@ const MemoryTrainer = () => {
               <button onClick={handleRestart} style={buttonStyle}>
                 Start Again
               </button>
+            </div>
+            <div>
+            <p><b>Memory Tip:</b> Try to create a story out of the picture to memorise.</p>
+            <p>For example, <u>"there is a house, with an elephant who has a dog and a lion..."</u></p>
             </div>
             </center>
           )}
